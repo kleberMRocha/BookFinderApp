@@ -13,6 +13,7 @@ export const Container = styled.div<ContainerProps>`
     display:flex;
     justify-content:center;
     align-items:center;
+    border: 2px solid #fff;
 
     ${(props)=> props.isFocused && css`
             border: 2px solid #060936;
@@ -30,11 +31,12 @@ export const Container = styled.div<ContainerProps>`
         }
         button{
            position:absolute;
-           width:100%;
+           width:95vw;
            margin:auto;
            bottom:0;
            left:0;
            right:0;
+           margin: 5px;
         }
         
     }
@@ -48,7 +50,7 @@ export const Container = styled.div<ContainerProps>`
         &::placeholder{
             text-align:center;
         }
-        
+
         ${(props)=> props.isEmpty && css`
             &::placeholder{
                 color: tomato;

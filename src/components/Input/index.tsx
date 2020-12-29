@@ -1,23 +1,26 @@
 import React, { FormEvent, useCallback, useState } from 'react';
 import { Container } from './style';
 
+interface InputGroupProps{
+    callback:Function;
+}
 
-const InputGroup:React.FC = () => {
+const InputGroup:React.FC<InputGroupProps> = ({callback}) => {
 
    const [focus,setFocus] = useState(false);
    const [isEmpty,setIsEmpty] = useState(false);
    const [searchValue,setSearchValue] = useState('');
-
    const handleSubmit = useCallback((event:FormEvent) => {
         event.preventDefault();
-        if(searchValue.length === 0){
+        if(!searchValue){
             setIsEmpty(true);
             return;
         } 
-
+        window.location.href = '#searchResult';
         setIsEmpty(false);
+        callback(searchValue);
 
-    },[searchValue]);
+    },[searchValue,callback]);
 
 
     return (
