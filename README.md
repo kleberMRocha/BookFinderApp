@@ -1,6 +1,6 @@
 # 📚️ Book Finder App 
 
-![BookFinder](./src/assets/Book App.gif)
+![BookFinder](https://github.com/kleberMRocha/BookFinderApp/blob/master/src/screenshot/01.png)
 
 **Tier:** 2-Intermediate
 
