@@ -22,10 +22,10 @@ interface BookCardProps {
 }
 
 export default class AsyncStorageService {
-   async setValues(data:BookCardProps[]):Promise<void>{
 
+   async setValues(data:BookCardProps[]):Promise<void>{
         try {
-          await AsyncStorage.setItem('@bookFinderWishList', JSON.stringify({data}));
+          await AsyncStorage.setItem('@bookFinderWishList', JSON.stringify(data));
         } catch (error) {
           console.log(error)
         }
@@ -35,7 +35,6 @@ export default class AsyncStorageService {
 
         try {
           const wishList =  await AsyncStorage.getItem('@bookFinderWishList');
-          console.log(wishList)
           return wishList != null ? JSON.parse(wishList) : null;
         
           } catch (error) {
