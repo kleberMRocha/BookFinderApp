@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useCallback, useState } from "react";
 import { Container, FaHeartIcon } from "./style";
 
 interface BookCardProps {
@@ -36,7 +36,7 @@ const BookCard: React.FC<BookCardProps> = (Props) => {
 
   });
 
-  function handleStorageValues() {
+  const  handleStorageValues = useCallback(() => {
 
     let localStorageItem:any = localStorage.getItem('@BookFinderWeb');
 
@@ -55,7 +55,7 @@ const BookCard: React.FC<BookCardProps> = (Props) => {
       localStorage.setItem('@BookFinderWeb',JSON.stringify([...wishList,Props.book]));
     }
     
-  }
+  },[Props.book,id, isFave] );
 
   return (
     <Container>
