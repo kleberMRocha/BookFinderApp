@@ -7,6 +7,7 @@ import ImgFigure from '../../assets/home.svg';
 import BookCard from '../../components/BookCard/index';
 
 import api from '../../api/axios';
+import NavBar from '../../components/NavBar';
 
 interface BooksProps {
   id: string;
@@ -49,6 +50,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <NavBar />
       <Container>
         <FormGroup>
           <Title content='Book finder' />

@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import {FaHeart} from 'react-icons/fa';
+
+export const FaHeartIcon = styled(FaHeart)`
+
+`;
 
 export const Container = styled.div`
   width: 300px;
@@ -10,8 +15,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px;
+  padding: 15px;
   font-weight: border-left;
+
   
   .description{
       text-align:left;
@@ -26,7 +32,8 @@ export const Container = styled.div`
   }
   strong {
     font-weight: bold;
-    margin-bottom: 8px;
+    margin: 20px 0;
+    padding:0 15px;
   }
   p {
     color: #282928;
@@ -36,6 +43,22 @@ export const Container = styled.div`
     margin: 15px auto;
     cursor: pointer;
     
+  }
+  button{
+    position:absolute;
+    cursor:pointer;
+    border:none;
+    
+    left:0;
+    top:0;
+    padding:5px;
+    margin: 5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    span{
+      margin-left:5px;
+    }
   }
 
   a {

@@ -1,5 +1,5 @@
-import React from "react";
-import { Container } from "./style";
+import React, { useEffect, useState } from "react";
+import { Container, FaHeartIcon } from "./style";
 
 interface BookCardProps {
   book: {
@@ -21,8 +21,42 @@ interface BookCardProps {
   };
 }
 
+
 const BookCard: React.FC<BookCardProps> = (Props) => {
+
   const { id, volumeInfo, saleInfo } = Props.book;
+
+  const [isFave,setIsfav] = useState<boolean>(() => {
+
+  const localStorageItem:any = localStorage.getItem('@BookFinderWeb');
+  const parseLocalStorage = JSON.parse(localStorageItem);
+  
+    return parseLocalStorage !== null 
+    ? (parseLocalStorage.some((item:any) => item.id === id))
+    : false;
+
+  });
+
+  function handleStorageValues() {
+
+    let localStorageItem:any = localStorage.getItem('@BookFinderWeb');
+
+    const wishList = localStorageItem !== null 
+    ? (JSON.parse(localStorageItem))
+    : [{}];
+
+
+    if(isFave){
+      setIsfav(!isFave);
+      const newWishList = wishList.filter((value: any) => value.id !== id);
+      localStorage.setItem('@BookFinderWeb', JSON.stringify(newWishList));
+
+    }else{
+      setIsfav(!isFave);
+      localStorage.setItem('@BookFinderWeb',JSON.stringify([...wishList,Props.book]));
+    }
+    
+  }
 
   return (
     <Container>
@@ -40,6 +74,9 @@ const BookCard: React.FC<BookCardProps> = (Props) => {
       <div className="description">
         <p>{volumeInfo.description !== undefined && volumeInfo.description}</p>
       </div>
+        <button onClick={() => handleStorageValues()}>
+          <FaHeartIcon color={isFave ? "tomato":"gray"} /> <span>wishlist</span>
+        </button>    
       <a
         target="blank"
         rel="noopener"
@@ -56,6 +93,7 @@ const BookCard: React.FC<BookCardProps> = (Props) => {
       >
         {saleInfo.saleability === "FOR_SALE" ? "Buy on google Play." : "Buy on amazon"}
       </a>
+
     </Container>
   );
 };
