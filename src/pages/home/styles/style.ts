@@ -35,12 +35,6 @@ export const FormGroup = styled.div`
   margin: 0 auto;
 `;
 
-export const Footer = styled.footer`
-  text-align: center;
-  color: #fff;
-  margin-bottom:20px;
-  width:80vw;
-`;
 
 export const Error = styled.div`
   p{

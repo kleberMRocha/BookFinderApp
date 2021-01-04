@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Title from '../../components/Title';
 import Figure from '../../components/Figure';
-import { BookContainer, Container, Footer, FormGroup, Error } from './styles/style';
+import { BookContainer, Container, FormGroup, Error } from './styles/style';
 import Input from '../../components/Input';
 import ImgFigure from '../../assets/home.svg';
 import BookCard from '../../components/BookCard/index';
 
 import api from '../../api/axios';
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 
 interface BooksProps {
   id: string;
@@ -69,9 +70,7 @@ const App: React.FC = () => {
             return <BookCard key={book.id} book={book}/>;
           })}
           <div>
-          <Footer>
-            <p>made with ❤️ by <a href="https://github.com/kleberMRocha">Kleber</a></p> 
-          </Footer>
+            <Footer/>
           </div>
         </BookContainer>
     

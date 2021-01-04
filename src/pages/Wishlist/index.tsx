@@ -3,6 +3,7 @@ import { Container, TitleGroup, WishListContainer } from "./styles/style";
 import NavBar from "../../components/NavBar";
 import BookCard from "../../components/BookCard";
 import WishListImg from '../../assets/book.svg';
+import Footer from "../../components/Footer";
 
 interface BookCardProps {
   id: string;
@@ -51,9 +52,7 @@ const WishList: React.FC = () => {
 
         </WishListContainer>
             
-
-
-
+          <Footer />
 
     </Container>
   );
