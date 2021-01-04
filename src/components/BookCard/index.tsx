@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { Container, FaHeartIcon } from "./style";
 
 interface BookCardProps {
@@ -20,7 +20,6 @@ interface BookCardProps {
     };
   };
 }
-
 
 const BookCard: React.FC<BookCardProps> = (Props) => {
 
