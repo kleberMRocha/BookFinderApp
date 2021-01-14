@@ -26,8 +26,11 @@ interface BookCardProps {
 const WishList: React.FC = () => {
   const [wishList] = useState<BookCardProps[]>(() => {
     const localStorageItem: any = localStorage.getItem("@BookFinderWeb");
-    const localStorangeItemParsed = JSON.parse(localStorageItem);
-    localStorangeItemParsed.shift();
+    let localStorangeItemParsed = JSON.parse(localStorageItem);
+
+    localStorangeItemParsed 
+    ? localStorangeItemParsed.shift()
+    : localStorangeItemParsed = [];
 
     return localStorangeItemParsed;
   });
